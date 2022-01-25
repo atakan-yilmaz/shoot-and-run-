@@ -15,6 +15,7 @@ namespace shootandRun1.Movements
         {
             _characterController = playerController.GetComponent<CharacterController>();
         }
+
         public void MoveAction(Vector3 direction, float moveSpeed)
         {
             if (direction == Vector3.zero) return;
