@@ -4,6 +4,7 @@ using UnityEngine;
 using shootandRun1.Abstracts.Inputs;
 using shootandRun1.Abstracts.Movements;
 using shootandRun1.Movements;
+using shootandRun1.Animations;
 
 namespace shootandRun1.Controllers
 {
@@ -15,13 +16,15 @@ namespace shootandRun1.Controllers
 
         IInputReader _input;
         IMover _mover;
+        CharacterAnimation _animation;
 
         Vector3 _direction;
 
         private void Awake()
         {
             _input = GetComponent<IInputReader>();
-            _mover = new MoveWithCharacterController(this, _moveSpeed);
+            _mover = new MoveWithCharacterController(this);
+            _animation = new CharacterAnimation(this);
         }
 
         private void Update()
@@ -30,7 +33,7 @@ namespace shootandRun1.Controllers
         }
         private void FixedUpdate()
         {
-            _mover.MoveAction(_direction);
+            _mover.MoveAction(_direction, _moveSpeed);
         }
     }
 }

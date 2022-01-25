@@ -7,7 +7,7 @@ namespace shootandRun1.Abstracts.Movements
 {
     public interface IMover
     {
-        void MoveAction(Vector3 direction);
+        void MoveAction(Vector3 direction, float moveSpeed);
     }
 }
 
