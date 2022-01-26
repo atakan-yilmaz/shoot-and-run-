@@ -12,6 +12,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Rotator",
+                    "type": "Value",
+                    "id": "65d4fc79-2715-4cba-89b8-6f5b7abe2ac1",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -69,6 +77,17 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "2eb19064-9bbf-48cb-89b8-efae75cf1e6d",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "ScaleVector2(x=2,y=2)",
+                    "groups": "",
+                    "action": "Rotator",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
