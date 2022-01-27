@@ -14,6 +14,7 @@ namespace shootandRun1.Controllers
         [SerializeField] float _moveSpeed = 10f;
         [Header("Movement Information")]
         [SerializeField] Transform _turnTransform;
+        [SerializeField] WeaponController _currentWeapon;
 
 
         IInputReader _input;
@@ -42,6 +43,11 @@ namespace shootandRun1.Controllers
             
             _xRotator.RotationAction(_input.Rotation.x, _turnSpeed);
             _yRotator.RotationAction(_input.Rotation.y, _turnSpeed);
+
+            if (_input.IsAttackButtonPress)
+            {
+                _currentWeapon.Attack();
+            }
         }
         private void FixedUpdate()
         {

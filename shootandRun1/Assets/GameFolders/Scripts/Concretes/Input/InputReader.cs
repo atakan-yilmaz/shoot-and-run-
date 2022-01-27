@@ -13,6 +13,8 @@ namespace shootandRun1.Inputs
 
         public Vector2 Rotation { get; private set; }
 
+        public bool IsAttackButtonPress { get; private set; }
+
         public void OnMove(InputAction.CallbackContext context)
         {
             Vector2 oldDirection = context.ReadValue<Vector2>();
@@ -22,6 +24,11 @@ namespace shootandRun1.Inputs
         public void OnRotator(InputAction.CallbackContext context)
         {
             Rotation = context.ReadValue<Vector2>();
+        }
+
+        public void OnAttack (InputAction.CallbackContext context)
+        {
+            IsAttackButtonPress = context.ReadValueAsButton();
         }
     }
 }
