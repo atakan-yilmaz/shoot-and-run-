@@ -6,7 +6,22 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Yakuzombie_diffuse
+    second: {fileID: 2800000, guid: 54e09f05e58258747a92e2ce62934382, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Yakuzombie_normal
+    second: {fileID: 2800000, guid: 94af42e325bd0664d88b4664d0b87dc8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Yakuzombie_specular
+    second: {fileID: 2800000, guid: 8867830a971a2974c9a1a5d56b37baf0, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
