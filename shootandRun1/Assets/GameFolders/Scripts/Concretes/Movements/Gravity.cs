@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace shootandRun1.Movements
 {
+    [RequireComponent(typeof(CharacterController))]
     public class Gravity : MonoBehaviour
     {
         [SerializeField] float _gravity = 9.81f;

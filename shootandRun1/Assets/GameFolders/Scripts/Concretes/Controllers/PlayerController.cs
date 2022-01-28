@@ -5,10 +5,12 @@ using shootandRun1.Abstracts.Inputs;
 using shootandRun1.Abstracts.Movements;
 using shootandRun1.Movements;
 using shootandRun1.Animations;
+using shootandRun1.Abstracts.Controllers;
+
 
 namespace shootandRun1.Controllers
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IEntityController
     {
         [SerializeField] float _turnSpeed = 10f;
         [SerializeField] float _moveSpeed = 10f;

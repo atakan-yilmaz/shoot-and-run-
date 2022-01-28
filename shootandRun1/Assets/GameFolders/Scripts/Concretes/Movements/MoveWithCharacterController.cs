@@ -3,6 +3,7 @@ using shootandRun1.Controllers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using shootandRun1.Abstracts.Controllers;
 
 
 namespace shootandRun1.Movements
@@ -11,9 +12,9 @@ namespace shootandRun1.Movements
     {
         CharacterController _characterController;
 
-        public MoveWithCharacterController(PlayerController playerController)
+        public MoveWithCharacterController(IEntityController entityController)
         {
-            _characterController = playerController.GetComponent<CharacterController>();
+            _characterController = entityController.transform.GetComponent<CharacterController>();
         }
 
         public void MoveAction(Vector3 direction, float moveSpeed)
