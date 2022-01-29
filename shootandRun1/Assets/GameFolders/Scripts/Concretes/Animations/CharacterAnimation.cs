@@ -2,6 +2,7 @@ using shootandRun1.Controllers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using shootandRun1.Abstracts.Controllers;
 
 
 namespace shootandRun1.Animations
@@ -10,9 +11,9 @@ namespace shootandRun1.Animations
     {
         Animator _animator;
 
-        public CharacterAnimation(PlayerController entity)
+        public CharacterAnimation(IEntityController entity)
         {
-            _animator = entity.GetComponentInChildren<Animator>();
+            _animator = entity.transform.GetComponentInChildren<Animator>();
         }
 
         public void MoveAnimation(float moveSpeed)
