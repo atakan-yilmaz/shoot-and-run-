@@ -1,39 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using shootandRun1.Abstracts.Combats;
+using shootandRun1.Combats;
+using shootandRun1.ScriptableObjects;
+
+
 
 namespace shootandRun1.Controllers 
 {
     public class WeaponController : MonoBehaviour
     {
         [SerializeField] bool _canFire;
-        [SerializeField] float _attackMaxDelay = 0.25f;
-        [SerializeField] Camera _camera;
-        [SerializeField] float _distance = 100f;
-        [SerializeField] LayerMask _layerMask;
+        [SerializeField] Transform _transformObject; //camera 
+
+        // ----------------------------------**----------------------------------- \\
+
+        [SerializeField] AttackSO _attackSO;
 
         float _currentTime = 0f;
+        IAttackType _attackType;
 
-        private void Update()
+        private void Awake()
+        {
+            _attackType = new RangeAttack(_transformObject, _attackSO); //camera position
+        }
+
+        void Update()
         {
             _currentTime += Time.deltaTime;
 
-            _canFire = _currentTime > _attackMaxDelay;
+            _canFire = _currentTime > _attackSO.AttackMaxDelay;
         }
 
         public void Attack()
         {
             if (!_canFire) return;
 
-            Ray ray = _camera.ViewportPointToRay(Vector3.one / 2f);
-
-            if (Physics.Raycast(ray, out RaycastHit hit, _distance, (int)_layerMask))
-            {
-                Debug.Log(hit.collider.gameObject.name);
-            }
+            _attackType.AttackAction();
 
             _currentTime = 0f;
-        }
+        }      
     }
 }
+
 

@@ -20,7 +20,6 @@ namespace shootandRun1.Movements
 
         public void MoveAction(Vector3 direction, float moveSpeed)
         {
-            
             _navMeshAgent.SetDestination(direction);
         }
     }
