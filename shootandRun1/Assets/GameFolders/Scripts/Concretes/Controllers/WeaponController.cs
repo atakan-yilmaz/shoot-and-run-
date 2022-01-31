@@ -6,7 +6,6 @@ using shootandRun1.Combats;
 using shootandRun1.ScriptableObjects;
 
 
-
 namespace shootandRun1.Controllers 
 {
     public class WeaponController : MonoBehaviour

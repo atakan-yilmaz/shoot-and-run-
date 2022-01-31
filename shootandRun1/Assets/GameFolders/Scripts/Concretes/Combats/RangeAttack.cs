@@ -4,6 +4,7 @@ using UnityEngine;
 using shootandRun1.Abstracts.Combats;
 using shootandRun1.ScriptableObjects;
 
+
 namespace shootandRun1.Combats
 {
     public class RangeAttack : IAttackType
@@ -11,8 +12,6 @@ namespace shootandRun1.Combats
         Camera _camera;
         AttackSO _attackSO;
         
-    
-
         public RangeAttack(Transform transformObject, AttackSO attackSO)
         {
             _camera = transformObject.GetComponent<Camera>();
