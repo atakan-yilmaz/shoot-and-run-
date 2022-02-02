@@ -23,6 +23,7 @@ namespace shootandRun1.Controllers
         IRotator _xRotator;
         IRotator _yRotator;
         CharacterAnimation _animation;
+        InventoryController _inventory;
 
         Vector3 _direction; 
 
@@ -34,6 +35,7 @@ namespace shootandRun1.Controllers
             _animation = new CharacterAnimation(this);
             _xRotator = new RotatorX(this);
             _yRotator = new RotatorY(this);
+            _inventory = GetComponent<InventoryController>();
         }
         private void Update()
         {
@@ -45,7 +47,14 @@ namespace shootandRun1.Controllers
 
             if (_input.IsAttackButtonPress)
             {
-                //_currentWeapon.Attack();
+                _inventory.CurrentWeapon.Attack();
+            }
+
+            //Debug.Log(_input.IsInventoryButtonPressed); klavye q islemi 
+
+            if (_input.IsInventoryButtonPressed)
+            {
+                _inventory.ChangeWeapon();
             }
         }
         private void FixedUpdate()

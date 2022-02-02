@@ -1709,18 +1709,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1065745726, guid: 6ec0d1069b02b2b41aa154d8e5f9f28c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5791914970915050357, guid: 6ec0d1069b02b2b41aa154d8e5f9f28c, type: 3}
-      propertyPath: _weapons.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6141529457139810510, guid: 6ec0d1069b02b2b41aa154d8e5f9f28c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6141529457572725402, guid: 6ec0d1069b02b2b41aa154d8e5f9f28c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1769,10 +1757,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6141529457682659793, guid: 6ec0d1069b02b2b41aa154d8e5f9f28c, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: c23a90178fdbfea49aef42c2fa197fb3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ec0d1069b02b2b41aa154d8e5f9f28c, type: 3}
 --- !u!1001 &6535890303051486641
