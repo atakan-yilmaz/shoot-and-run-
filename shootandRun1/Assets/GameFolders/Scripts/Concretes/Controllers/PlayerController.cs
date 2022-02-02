@@ -12,11 +12,10 @@ namespace shootandRun1.Controllers
 {
     public class PlayerController : MonoBehaviour, IEntityController
     {
-        [SerializeField] float _turnSpeed = 10f;
-        [SerializeField] float _moveSpeed = 10f;
         [Header("Movement Information")]
+        [SerializeField] float _turnSpeed = 10f;
+        [SerializeField] float _moveSpeed = 10f;     
         [SerializeField] Transform _turnTransform;
-        [SerializeField] WeaponController _currentWeapon;
 
 
         IInputReader _input;
@@ -28,7 +27,6 @@ namespace shootandRun1.Controllers
         Vector3 _direction; 
 
         public Transform TurnTransform => _turnTransform;
-
         private void Awake()
         {
             _input = GetComponent<IInputReader>();
@@ -37,7 +35,6 @@ namespace shootandRun1.Controllers
             _xRotator = new RotatorX(this);
             _yRotator = new RotatorY(this);
         }
-
         private void Update()
         {
             _direction = _input.Direction;
@@ -48,14 +45,13 @@ namespace shootandRun1.Controllers
 
             if (_input.IsAttackButtonPress)
             {
-                _currentWeapon.Attack();
+                //_currentWeapon.Attack();
             }
         }
         private void FixedUpdate()
         {
             _mover.MoveAction(_direction, _moveSpeed);
         }
-
         private void LateUpdate()
         {
             _animation.MoveAnimation(_direction.magnitude);

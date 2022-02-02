@@ -24,15 +24,6 @@ namespace shootandRun1.Combats
 
             if (Physics.Raycast(ray, out RaycastHit hit, _attackSO.FloatValue, _attackSO.LayerMask))
             {
-                //Debug.Log(hit.collider.gameObject.name);
-
-                //IHealth health = hit.collider.GetComponent<IHealth>();
-
-                //if (health != null)
-                //{
-                //    health.TakeDamage(_damage);
-                //}
-
                 if (hit.collider.TryGetComponent(out IHealth health))
                 {
                     health.TakeDamage(_attackSO.Damage);

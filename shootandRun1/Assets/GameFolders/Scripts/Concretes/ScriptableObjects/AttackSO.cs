@@ -22,15 +22,17 @@ namespace shootandRun1.ScriptableObjects
         [SerializeField] LayerMask _layerMask;
         [SerializeField] float _floatValue = 1f; //distance property
         [SerializeField] float _attackMaxDelay = 0.25f;
+        [SerializeField] AnimatorOverrideController _animatorOverride;
 
-        private Transform transform; //close
+        //private Transform transform; //close
 
         public int Damage => _damage;
         public float FloatValue => _floatValue;
         public LayerMask LayerMask => _layerMask;
         public float AttackMaxDelay => _attackMaxDelay;
+        public AnimatorOverrideController AnimatorOverride => _animatorOverride;
 
-        public IAttackType GetAttackType()
+        public IAttackType GetAttackType(Transform transform )
         {
             if (_attackType == AttackTypeEnum.Range)
             {

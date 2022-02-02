@@ -12,11 +12,10 @@ namespace shootandRun1.Helpers
         {
             OnDrawGizmosSelected();
         }
-
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawSphere(this.transform.position, _radius);
+            Gizmos.DrawWireSphere(this.transform.position, _radius);
         }
     }
 }

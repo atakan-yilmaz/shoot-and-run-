@@ -19,7 +19,6 @@ namespace shootandRun1.Combats
         {
             _currentHealth = _healthInfo.MaxHealth;
         }
-
         public void TakeDamage(int damage)
         {
             if (IsDead) return;

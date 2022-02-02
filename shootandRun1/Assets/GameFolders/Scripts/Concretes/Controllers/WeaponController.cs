@@ -19,19 +19,17 @@ namespace shootandRun1.Controllers
 
         float _currentTime = 0f;
         IAttackType _attackType;
-
+        public AttackSO attackSO => _attackSO;
         private void Awake()
         {
             _attackType = new RangeAttack(_transformObject, _attackSO); //camera position
         }
-
         void Update()
         {
             _currentTime += Time.deltaTime;
 
             _canFire = _currentTime > _attackSO.AttackMaxDelay;
         }
-
         public void Attack()
         {
             if (!_canFire) return;

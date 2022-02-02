@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181618fc81102654899f6d53a14aa3d7, type: 3}
   m_Name: MeleeAttackHandToHand
   m_EditorClassIdentifier: 
+  _attackType: 1
   _damage: 1
   _layerMask:
     serializedVersion: 2

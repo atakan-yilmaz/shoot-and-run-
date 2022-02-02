@@ -16,7 +16,6 @@ namespace shootandRun1.Movements
         {
             _characterController = GetComponent<CharacterController>();
         }
-
         private void Update()
         {
             if (_characterController.isGrounded) _velocity.y = 0f;

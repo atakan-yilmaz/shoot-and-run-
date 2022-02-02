@@ -27,18 +27,16 @@ namespace shootandRun1.Controllers
             _navMeshAgent = GetComponent<NavMeshAgent>();
             _health = GetComponent<IHealth>();
         }
-
         private void Update()
         {
             _mover.MoveAction(_playerPrefab.transform.position, 10f);
 
-            if (_health.IsDead) return;
+            if (_health.IsDead) return;  
         }
-
         private void LateUpdate()
         {
             _animation.MoveAnimation(_navMeshAgent.velocity.magnitude);
         }
-    }   
+    }
 }
 

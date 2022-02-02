@@ -17,7 +17,6 @@ namespace shootandRun1.Movements
         {
             _navMeshAgent = entityController.transform.GetComponent<NavMeshAgent>();
         }
-
         public void MoveAction(Vector3 direction, float moveSpeed)
         {
             _navMeshAgent.SetDestination(direction);
