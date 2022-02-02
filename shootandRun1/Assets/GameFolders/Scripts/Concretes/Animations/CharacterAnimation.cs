@@ -22,6 +22,11 @@ namespace shootandRun1.Animations
 
             _animator.SetFloat("moveSpeed", moveSpeed, 0.1f, Time.deltaTime);
         }
+
+        public void AttackAnimation(bool canAttack)
+        {
+            _animator.SetBool("isAttack", canAttack);
+        }
     }
 }
 
