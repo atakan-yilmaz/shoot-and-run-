@@ -9,7 +9,6 @@ namespace shootandRun1.ScriptableObjects
     public class HealthSO : ScriptableObject
     {
         [SerializeField] int _maxHealth;
-
         public int MaxHealth => _maxHealth;
     }
 }

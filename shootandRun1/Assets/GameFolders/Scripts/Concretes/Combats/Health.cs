@@ -13,6 +13,8 @@ namespace shootandRun1.Combats
  
         int _currentHealth;
 
+        public event System.Action<int, int> OnTakeHit;
+
         public bool IsDead => _currentHealth <= 0;
 
         private void Awake()
@@ -24,6 +26,8 @@ namespace shootandRun1.Combats
             if (IsDead) return;
            
             _currentHealth -= damage;
+
+            OnTakeHit?.Invoke(_currentHealth, _healthInfo.MaxHealth);
         }
     }
 }

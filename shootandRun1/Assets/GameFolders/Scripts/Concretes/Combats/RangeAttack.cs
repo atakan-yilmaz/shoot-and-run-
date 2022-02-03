@@ -19,7 +19,7 @@ namespace shootandRun1.Combats
         }
 
         public void AttackAction()
-        {
+        { 
             Ray ray = _camera.ViewportPointToRay(Vector3.one / 2f);
 
             if (Physics.Raycast(ray, out RaycastHit hit, _attackSO.FloatValue, _attackSO.LayerMask))
