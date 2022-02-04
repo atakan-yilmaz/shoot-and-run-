@@ -10,6 +10,8 @@ namespace shootandRun1.Abstracts.States
         void Tick();
         //void FixedTick();
         //void LateUpdate();
+        void OnExit();
+        void OnStart();
     }
 }
 
