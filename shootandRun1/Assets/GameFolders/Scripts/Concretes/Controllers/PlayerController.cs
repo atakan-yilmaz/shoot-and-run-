@@ -19,15 +19,16 @@ namespace shootandRun1.Controllers
 
 
         IInputReader _input;
-        IMover _mover;
         IRotator _xRotator;
         IRotator _yRotator;
+        IMover _mover;
         CharacterAnimation _animation;
         InventoryController _inventory;
 
         Vector3 _direction; 
 
         public Transform TurnTransform => _turnTransform;
+
         private void Awake()
         {
             _input = GetComponent<IInputReader>();

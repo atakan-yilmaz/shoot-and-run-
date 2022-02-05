@@ -12,6 +12,8 @@ namespace shootandRun1.Abstracts.States
         //void LateUpdate();
         void OnExit();
         void OnStart();
+        void TickFixed();
+        void TickLate();
     }
 }
 

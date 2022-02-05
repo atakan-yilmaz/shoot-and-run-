@@ -287,23 +287,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd7f6f3b5f2bba4eb1b3693a94b496a, type: 3}
---- !u!1 &114895532 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6141529457787713143, guid: 6ec0d1069b02b2b41aa154d8e5f9f28c, type: 3}
-  m_PrefabInstance: {fileID: 6141529457412428191}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &114895536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114895532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e7a57d2704fe0242a4decfd674295d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &289971426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4913337479953987863, guid: bfd7f6f3b5f2bba4eb1b3693a94b496a, type: 3}
@@ -1727,18 +1710,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1065745728, guid: 6ec0d1069b02b2b41aa154d8e5f9f28c, type: 3}
-      propertyPath: _transformObject
-      value: 
-      objectReference: {fileID: 718539197}
-    - target: {fileID: 5791914970915050357, guid: 6ec0d1069b02b2b41aa154d8e5f9f28c, type: 3}
-      propertyPath: _weapons.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6141529457572725400, guid: 6ec0d1069b02b2b41aa154d8e5f9f28c, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6141529457572725402, guid: 6ec0d1069b02b2b41aa154d8e5f9f28c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1787,8 +1758,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6141529457572725398, guid: 6ec0d1069b02b2b41aa154d8e5f9f28c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ec0d1069b02b2b41aa154d8e5f9f28c, type: 3}
 --- !u!1001 &6535890303051486641
 PrefabInstance:

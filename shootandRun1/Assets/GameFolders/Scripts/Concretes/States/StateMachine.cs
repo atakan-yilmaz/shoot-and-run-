@@ -1,5 +1,6 @@
 using shootandRun1.Abstracts.States;
 using shootandRun1.States;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,6 +38,16 @@ public class StateMachine
         }
 
         _currentState.Tick();
+    }
+
+    public void TickFixed()
+    {
+        _currentState.TickFixed();
+    }
+
+    public void TickLate()
+    {
+        _currentState.TickLate();
     }
 
     private StateTransformer CheckForTransformer()

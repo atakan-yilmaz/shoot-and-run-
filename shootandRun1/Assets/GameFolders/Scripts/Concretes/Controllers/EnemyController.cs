@@ -7,59 +7,65 @@ using shootandRun1.Movements;
 using shootandRun1.Animations;
 using UnityEngine.AI;
 using shootandRun1.Abstracts.Combats;
-
+using shootandRun1.States.EnemyStates;
 
 namespace shootandRun1.Controllers
 {
-    public class EnemyController : MonoBehaviour, IEntityController
+    public class EnemyController : MonoBehaviour, IEnemyController
     {
-
-        IMover _mover;
         IHealth _health;
-        CharacterAnimation _animation;
         NavMeshAgent _navMeshAgent;
-        InventoryController _inventoryController;
+        StateMachine _stateMachine;
 
-        Transform _playerTransform;
+        public IMover Mover { get; private set; }
+
+        public InventoryController Inventory { get; private set; }
+        public CharacterAnimation Animation { get; private set; }
+        public Transform Target { get; set; }
+        public float Magnitude => _navMeshAgent.velocity.magnitude;
+
+        public bool CanAttack => Vector3.Distance(Target.position, this.transform.position) <= _navMeshAgent.stoppingDistance && _navMeshAgent.velocity == Vector3.zero;
+
         bool _canAttack;
 
         private void Awake()
         {
-            _mover = new MoveWithNavMesh(this);
-            _animation = new CharacterAnimation(this);
+            _stateMachine = new StateMachine();
             _navMeshAgent = GetComponent<NavMeshAgent>();
             _health = GetComponent<IHealth>();
-            _inventoryController = GetComponent<InventoryController>();
+
+            Mover = new MoveWithNavMesh(this);
+            Animation = new CharacterAnimation(this);
+            Inventory = GetComponent<InventoryController>();
         }
 
         void Start()
         {
-            _playerTransform = FindObjectOfType<PlayerController>().transform;
+            Target = FindObjectOfType<PlayerController>().transform;
+
+            AttackState attackState = new AttackState(this);
+            ChaseState chaseState = new ChaseState(this);
+            DeadState deadState = new DeadState(this);
+
+            _stateMachine.AddState(chaseState, attackState, () => CanAttack);
+            _stateMachine.AddState(attackState, chaseState, () => !CanAttack);
+            _stateMachine.AddAnyState(deadState, () => _health.IsDead);
+
+            _stateMachine.SetState(chaseState);
         }
        
         private void Update()
         {
-            if (_health.IsDead) return;
-
-            _mover.MoveAction(_playerTransform.position,moveSpeed: 10f);
-
-            _canAttack = Vector3.Distance(_playerTransform.position, this.transform.position) <= _navMeshAgent.stoppingDistance && _navMeshAgent.velocity == Vector3.zero;
-
-            //Debug.Log(_canAttack);
+            _stateMachine.Tick();
         }
 
         void FixedUpdate()
         {
-            if (_canAttack)
-            {
-                _inventoryController.CurrentWeapon.Attack();
-            }
+            _stateMachine.TickFixed();
         }
         private void LateUpdate()
         {
-            _animation.MoveAnimation(_navMeshAgent.velocity.magnitude);
-            _animation.AttackAnimation(_canAttack);
+            _stateMachine.TickLate();
         }
     }
 }
-

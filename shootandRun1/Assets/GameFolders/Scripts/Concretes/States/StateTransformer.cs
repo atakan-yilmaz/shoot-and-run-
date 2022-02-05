@@ -12,10 +12,10 @@ namespace shootandRun1.States
         public IState From { get; }
         public System.Func<bool> Condition { get; }
 
-        public StateTransformer(IState to, IState from, System.Func<bool> condition)
+        public StateTransformer(IState from, IState to, System.Func<bool> condition)
         {
-            To = to;
             From = from;
+            To = to;
             Condition = condition;
         }
     }
