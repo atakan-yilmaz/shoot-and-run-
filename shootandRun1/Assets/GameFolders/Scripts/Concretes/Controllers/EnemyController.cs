@@ -8,6 +8,8 @@ using shootandRun1.Animations;
 using UnityEngine.AI;
 using shootandRun1.Abstracts.Combats;
 using shootandRun1.States.EnemyStates;
+using shootandRun1.Combats;
+
 
 namespace shootandRun1.Controllers
 {
@@ -21,6 +23,7 @@ namespace shootandRun1.Controllers
 
         public InventoryController Inventory { get; private set; }
         public CharacterAnimation Animation { get; private set; }
+        public Dead Dead { get; private set; }
         public Transform Target { get; set; }
         public float Magnitude => _navMeshAgent.velocity.magnitude;
 
@@ -37,6 +40,7 @@ namespace shootandRun1.Controllers
             Mover = new MoveWithNavMesh(this);
             Animation = new CharacterAnimation(this);
             Inventory = GetComponent<InventoryController>();
+            Dead = GetComponent<Dead>();
         }
 
         void Start()

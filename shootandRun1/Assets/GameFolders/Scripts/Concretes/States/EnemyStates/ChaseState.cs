@@ -24,6 +24,7 @@ namespace shootandRun1.States.EnemyStates
         public void OnExit()
         {
             Debug.Log($"{nameof(ChaseState)} {nameof(OnExit)}");
+            _enemyController.Mover.MoveAction(_enemyController.transform.position, 0f);
         }
 
         public void Tick()
@@ -42,5 +43,3 @@ namespace shootandRun1.States.EnemyStates
         }
     }
 }
-
-
