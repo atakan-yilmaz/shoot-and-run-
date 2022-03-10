@@ -45,4 +45,3 @@ namespace shootandRun1.ScriptableObjects
         }
     }
 }
-

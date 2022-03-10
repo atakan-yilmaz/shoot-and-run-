@@ -12,4 +12,3 @@ namespace shootandRun1.Abstracts.Controllers
 
     }
 }
-

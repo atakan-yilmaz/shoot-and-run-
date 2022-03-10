@@ -28,10 +28,9 @@ namespace shootandRun1.Animations
             _animator.SetBool("isAttack", canAttack);
         }
 
-        public void DeadAnimation()
+        public void DeadAnimation(string parameterName)
         {
-            _animator.SetTrigger("Death");
+            _animator.SetTrigger(parameterName);
         }
     }
 }
-

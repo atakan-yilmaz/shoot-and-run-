@@ -43,4 +43,3 @@ namespace shootandRun1.States.EnemyStates
         }
     }
 }
-

@@ -6,7 +6,7 @@ using shootandRun1.Abstracts.Movements;
 using shootandRun1.Movements;
 using shootandRun1.Animations;
 using shootandRun1.Abstracts.Controllers;
-
+using shootandRun1.Abstracts.Combats;
 
 namespace shootandRun1.Controllers
 {
@@ -17,11 +17,12 @@ namespace shootandRun1.Controllers
         [SerializeField] float _moveSpeed = 10f;     
         [SerializeField] Transform _turnTransform;
 
-
+                
         IInputReader _input;
         IRotator _xRotator;
         IRotator _yRotator;
         IMover _mover;
+        IHealth _health;
         CharacterAnimation _animation;
         InventoryController _inventory;
 
@@ -32,17 +33,25 @@ namespace shootandRun1.Controllers
         private void Awake()
         {
             _input = GetComponent<IInputReader>();
+            _health = GetComponent<IHealth>();
             _mover = new MoveWithCharacterController(this);
             _animation = new CharacterAnimation(this);
             _xRotator = new RotatorX(this);
             _yRotator = new RotatorY(this);
             _inventory = GetComponent<InventoryController>();
         }
+
+        private void OnEnable()
+        {
+            _health.OnDead += () => _animation.DeadAnimation("death");
+        }
         private void Update()
         {
             _direction = _input.Direction;
             //Debug.Log(_input.Rotation);
-            
+
+            if (_health.IsDead) return;
+
             _xRotator.RotationAction(_input.Rotation.x, _turnSpeed);
             _yRotator.RotationAction(_input.Rotation.y, _turnSpeed);
 
@@ -60,13 +69,16 @@ namespace shootandRun1.Controllers
         }
         private void FixedUpdate()
         {
+            if (_health.IsDead) return;
+
             _mover.MoveAction(_direction, _moveSpeed);
         }
         private void LateUpdate()
         {
+            if (_health.IsDead) return;
+
             _animation.MoveAnimation(_direction.magnitude);
             _animation.AttackAnimation(_input.IsAttackButtonPress);
         }
     }
 }
-

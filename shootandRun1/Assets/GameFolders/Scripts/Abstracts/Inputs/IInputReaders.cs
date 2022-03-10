@@ -13,4 +13,3 @@ namespace shootandRun1.Abstracts.Inputs
         bool IsInventoryButtonPressed { get; }
     }
 }
-

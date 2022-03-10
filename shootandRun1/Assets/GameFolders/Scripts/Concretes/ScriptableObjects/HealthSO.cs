@@ -12,4 +12,3 @@ namespace shootandRun1.ScriptableObjects
         public int MaxHealth => _maxHealth;
     }
 }
-

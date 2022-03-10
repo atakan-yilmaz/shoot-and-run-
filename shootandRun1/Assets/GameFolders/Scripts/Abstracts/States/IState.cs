@@ -16,4 +16,3 @@ namespace shootandRun1.Abstracts.States
         void TickLate();
     }
 }
-

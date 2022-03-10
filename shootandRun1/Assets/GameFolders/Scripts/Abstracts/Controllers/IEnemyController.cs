@@ -22,4 +22,3 @@ namespace shootandRun1.Abstracts.Controllers
         public float Magnitude { get; }
     }
 }
-

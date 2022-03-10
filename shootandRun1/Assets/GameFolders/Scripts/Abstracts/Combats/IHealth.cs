@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 
 namespace shootandRun1.Abstracts.Combats
 {
@@ -9,5 +5,7 @@ namespace shootandRun1.Abstracts.Combats
     {
         bool IsDead { get; }
         void TakeDamage(int damage);
+
+        event System.Action OnDead;
     }
 }

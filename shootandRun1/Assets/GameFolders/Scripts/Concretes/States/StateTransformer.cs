@@ -20,6 +20,3 @@ namespace shootandRun1.States
         }
     }
 }
-
-
-

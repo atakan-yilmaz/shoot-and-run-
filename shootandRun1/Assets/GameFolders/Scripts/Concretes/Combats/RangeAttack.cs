@@ -32,5 +32,3 @@ namespace shootandRun1.Combats
         }
     }
 }
-
-

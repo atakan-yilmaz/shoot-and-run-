@@ -11,4 +11,3 @@ namespace shootandRun1.Abstracts.Movements
        void RotationAction(float direction, float speed);    
     }
 }
-

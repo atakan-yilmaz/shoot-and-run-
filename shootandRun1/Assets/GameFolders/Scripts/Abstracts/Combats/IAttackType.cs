@@ -10,4 +10,3 @@ namespace shootandRun1.Abstracts.Combats
         void AttackAction();
     }
 }
-
