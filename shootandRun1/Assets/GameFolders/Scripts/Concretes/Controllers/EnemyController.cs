@@ -9,7 +9,7 @@ using UnityEngine.AI;
 using shootandRun1.Abstracts.Combats;
 using shootandRun1.States.EnemyStates;
 using shootandRun1.Combats;
-
+using shootandRun1.Managers;
 
 namespace shootandRun1.Controllers
 {
@@ -70,6 +70,11 @@ namespace shootandRun1.Controllers
         private void LateUpdate()
         {
             _stateMachine.TickLate();
+        }
+
+        void OnDestroy()
+        {
+            EnemyManager.Instance.RemoveEnemyController(this);
         }
     }
 }

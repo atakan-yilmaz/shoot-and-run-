@@ -1,3 +1,4 @@
+using shootandRun1.Managers;
 using shootandRun1.ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace shootandRun1.Controllers
         {
             _currentTime += Time.deltaTime;
 
-            if (_currentTime > _maxTime)
+            if (_currentTime > _maxTime && EnemyManager.Instance.CanSpawn)
             {
                 Spawn();
             }
@@ -30,7 +31,8 @@ namespace shootandRun1.Controllers
 
         void Spawn()
         {
-            Instantiate(_spawnInfo.EnemyPrefab, transform.position, Quaternion.identity);
+            EnemyController enemyController = Instantiate(_spawnInfo.EnemyPrefab, transform.position, Quaternion.identity);
+            EnemyManager.Instance.AddEnemyController(enemyController);
 
             _currentTime = 0f;
             _maxTime = _spawnInfo.RandamSpawnMaxTime;
