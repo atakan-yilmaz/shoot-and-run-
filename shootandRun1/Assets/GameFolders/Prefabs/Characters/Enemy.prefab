@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b709ca6cf7f054bb198212d3cb14dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canFire: 0
+  _canFire: 1
   _transformObject: {fileID: 0}
   _attackSO: {fileID: 11400000, guid: 1469e241534962242a40c9c9ec300108, type: 2}
 --- !u!1 &6118511599922758369
