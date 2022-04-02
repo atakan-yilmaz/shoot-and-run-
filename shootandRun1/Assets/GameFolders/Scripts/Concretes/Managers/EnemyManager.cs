@@ -1,5 +1,6 @@
 using shootandRun1.Abstracts.Helpers;
 using shootandRun1.Controllers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +30,11 @@ namespace shootandRun1.Managers
         public void RemoveEnemyController(EnemyController enemyController)
         {
             _enemies.Remove(enemyController);
+        }
+
+        internal void RemoveEnemyController()
+        {
+            throw new NotImplementedException();
         }
     }
 }

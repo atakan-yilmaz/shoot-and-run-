@@ -67,6 +67,7 @@ namespace shootandRun1.Controllers
         {
             _stateMachine.TickFixed();
         }
+
         private void LateUpdate()
         {
             _stateMachine.TickLate();
