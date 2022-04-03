@@ -30,11 +30,7 @@ namespace shootandRun1.Managers
         public void RemoveEnemyController(EnemyController enemyController)
         {
             _enemies.Remove(enemyController);
-        }
-
-        internal void RemoveEnemyController()
-        {
-            throw new NotImplementedException();
+            enemyController.transform.parent = this.transform;
         }
     }
 }
