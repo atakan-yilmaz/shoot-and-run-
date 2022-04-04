@@ -13,7 +13,9 @@ namespace shootandRun1.Managers
         [SerializeField] List<EnemyController> _enemies;
         [SerializeField] int _maxCountOnGame = 15;
 
-        public bool CanSpawn => _maxCountOnGame > _enemies.Count; 
+        public bool CanSpawn => _maxCountOnGame > _enemies.Count;
+
+        public bool IsListEmpty => _enemies.Count <= 0;
 
         private void Awake()
         {
