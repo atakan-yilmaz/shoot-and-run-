@@ -9,6 +9,7 @@ namespace shootandRun1.Managers
 {
     public class GameManager : SingletonMonoBehavior<GameManager>
     {
+        [SerializeField] int _waveLevel = 1;
         [SerializeField] float _waitNextLevel = 10f; 
         [SerializeField] float _waveMultiple = 1.2f;
         [SerializeField] int _maxWaveBoundaryCount = 50;
@@ -16,6 +17,9 @@ namespace shootandRun1.Managers
         int _currentWaveMaxCount;
 
         public bool IsWaveFinished => _currentWaveMaxCount <= 0;
+
+        public event System.Action<int> OnNextWave;
+
         private void Awake()
         {
             SetSingletonThisGameObject(this);
@@ -38,9 +42,12 @@ namespace shootandRun1.Managers
 
         public void DecreaseWaveCount()
         {
-            if (IsWaveFinished) 
+            if (IsWaveFinished)
             {
-                StartCoroutine(StartNextWaveAsync());
+                if (EnemyManager.Instance.IsListEmpty)
+                {
+                    StartCoroutine(StartNextWaveAsync());
+                }
             }
             else
             {
@@ -50,13 +57,11 @@ namespace shootandRun1.Managers
 
         private IEnumerator StartNextWaveAsync()
         {
-            while (!EnemyManager.Instance.IsListEmpty)
-            {
-                yield return null;
-            }
             yield return new WaitForSeconds(_waitNextLevel);
             _maxWaveBoundaryCount = System.Convert.ToInt32(_maxWaveBoundaryCount * _waveMultiple);
             _currentWaveMaxCount = _maxWaveBoundaryCount;
+            _waveLevel++;
+            OnNextWave?.Invoke(_waveLevel);
         }
     }
 }

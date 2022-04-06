@@ -2015,6 +2015,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1525927730, guid: 6ec0d1069b02b2b41aa154d8e5f9f28c, type: 3}
+      propertyPath: m_text
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6141529457572725402, guid: 6ec0d1069b02b2b41aa154d8e5f9f28c, type: 3}
       propertyPath: m_RootOrder
       value: 1
