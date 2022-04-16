@@ -24,6 +24,7 @@ namespace shootandRun1.States.EnemyStates
             _enemyController.Animation.DeadAnimation("dying");
             _enemyController.transform.GetComponent<CapsuleCollider>().enabled = false;
         }
+
         public void OnExit()
         {
             Debug.Log($"{nameof(DeadState)} {nameof(OnExit)}");

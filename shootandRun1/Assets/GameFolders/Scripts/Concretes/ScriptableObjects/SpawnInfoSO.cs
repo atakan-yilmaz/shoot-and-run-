@@ -16,4 +16,3 @@ namespace shootandRun1.ScriptableObjects
         public float RandamSpawnMaxTime => Random.Range(_minSpawnTime, _maxSpawnTime);
     }
 }
-

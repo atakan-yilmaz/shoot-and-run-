@@ -64,13 +64,14 @@ public class StateMachine
 
         return null;
     }
+
     public void AddState(IState from, IState to, System.Func<bool> condition)
     {
         StateTransformer stateTransformer = new StateTransformer(from, to, condition);
         _stateTransformers.Add(stateTransformer);
     }
 
-    public void AddAnyState(IState to,System.Func<bool>condition)
+    public void AddAnyState(IState to, System.Func<bool> condition)
     {
         StateTransformer stateTransformers = new StateTransformer(null, to, condition);
         _anystateTransformer.Add(stateTransformers);

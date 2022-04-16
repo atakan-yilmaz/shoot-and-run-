@@ -1,6 +1,5 @@
 using shootandRun1.Abstracts.Helpers;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,11 +9,14 @@ namespace shootandRun1.Managers
     public class GameManager : SingletonMonoBehavior<GameManager>
     {
         [SerializeField] int _waveLevel = 1;
-        [SerializeField] float _waitNextLevel = 10f; 
+        [SerializeField] float _waitNextLevel = 10f;
         [SerializeField] float _waveMultiple = 1.2f;
         [SerializeField] int _maxWaveBoundaryCount = 50;
+        [SerializeField] int _playerCount = 0;
 
         int _currentWaveMaxCount;
+
+        public int PlayerCount => _playerCount;
 
         public bool IsWaveFinished => _currentWaveMaxCount <= 0;
 
@@ -32,7 +34,7 @@ namespace shootandRun1.Managers
 
         public void LoadLevel(string name)
         {
-            StartCoroutine(LoadLevelAsync(name));
+            StartCoroutine(routine: LoadLevelAsync(name));
         }
 
         private IEnumerator LoadLevelAsync(string name)
@@ -49,6 +51,7 @@ namespace shootandRun1.Managers
                     StartCoroutine(StartNextWaveAsync());
                 }
             }
+
             else
             {
                 _currentWaveMaxCount--;
@@ -62,6 +65,11 @@ namespace shootandRun1.Managers
             _currentWaveMaxCount = _maxWaveBoundaryCount;
             _waveLevel++;
             OnNextWave?.Invoke(_waveLevel);
+        }
+
+        public void IncreasePlayerCount()
+        {
+            _playerCount++;
         }
     }
 }

@@ -46,7 +46,7 @@ namespace shootandRun1.Inputs
             IsInventoryButtonPressed = true && _index % 2 == 0;
             yield return new WaitForEndOfFrame();
             IsInventoryButtonPressed = false;
-
+  
             _index++;
         }
     }

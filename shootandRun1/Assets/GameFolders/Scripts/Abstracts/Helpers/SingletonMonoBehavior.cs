@@ -16,6 +16,7 @@ namespace shootandRun1.Abstracts.Helpers
                 Instance = instance;
                 DontDestroyOnLoad(this.gameObject);
             }
+
             else
             {
                 Destroy(this.gameObject);
@@ -23,4 +24,3 @@ namespace shootandRun1.Abstracts.Helpers
         }
     }
 }
-

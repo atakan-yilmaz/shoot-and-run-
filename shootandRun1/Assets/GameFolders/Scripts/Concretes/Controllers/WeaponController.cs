@@ -37,6 +37,6 @@ namespace shootandRun1.Controllers
             _attackType.AttackAction();
 
             _currentTime = 0f;
-        }      
+        }
     }
 }

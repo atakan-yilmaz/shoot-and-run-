@@ -36,4 +36,3 @@ namespace shootandRun1.Managers
         }
     }
 }
-
