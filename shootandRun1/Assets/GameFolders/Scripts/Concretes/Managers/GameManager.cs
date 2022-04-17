@@ -51,7 +51,6 @@ namespace shootandRun1.Managers
                     StartCoroutine(StartNextWaveAsync());
                 }
             }
-
             else
             {
                 _currentWaveMaxCount--;
@@ -70,6 +69,20 @@ namespace shootandRun1.Managers
         public void IncreasePlayerCount()
         {
             _playerCount++;
+        }
+
+        public void ReturnMenu()
+        {
+            if (_playerCount > 1)
+            {
+                _playerCount--;
+            }
+            else
+            {
+                _playerCount = 0;
+                EnemyManager.Instance.DestroyAllEnemies();
+                LoadLevel("Menu");
+            }
         }
     }
 }

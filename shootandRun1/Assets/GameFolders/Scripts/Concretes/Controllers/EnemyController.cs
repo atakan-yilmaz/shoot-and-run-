@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using shootandRun1.Abstracts.Controllers;
 using shootandRun1.Abstracts.Movements;
@@ -20,7 +18,6 @@ namespace shootandRun1.Controllers
         StateMachine _stateMachine;
 
         public IMover Mover { get; private set; }
-
         public InventoryController Inventory { get; private set; }
         public CharacterAnimation Animation { get; private set; }
         public Dead Dead { get; private set; }
@@ -42,7 +39,6 @@ namespace shootandRun1.Controllers
             Inventory = GetComponent<InventoryController>();
             Dead = GetComponent<Dead>();
         }
-
         void Start()
         {
             Target = FindObjectOfType<PlayerController>().transform;
@@ -67,12 +63,10 @@ namespace shootandRun1.Controllers
         {
             _stateMachine.TickFixed();
         }
-
         private void LateUpdate()
         {
             _stateMachine.TickLate();
         }
-
         void OnDestroy()
         {
             EnemyManager.Instance.RemoveEnemyController(this);

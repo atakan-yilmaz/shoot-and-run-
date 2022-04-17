@@ -17,6 +17,9 @@ namespace shootandRun1.Controllers
         [SerializeField] float _moveSpeed = 10f;     
         [SerializeField] Transform _turnTransform;
 
+        [Header("Uis")]
+        [SerializeField] GameObject _gameOverPanel;
+
                 
         IInputReader _input;
         IRotator _xRotator;
@@ -43,7 +46,11 @@ namespace shootandRun1.Controllers
 
         private void OnEnable()
         {
-            _health.OnDead += () => _animation.DeadAnimation("death");
+            _health.OnDead += () =>
+            {
+                _animation.DeadAnimation("death");
+                _gameOverPanel.SetActive(true);
+            };
         }
         private void Update()
         {

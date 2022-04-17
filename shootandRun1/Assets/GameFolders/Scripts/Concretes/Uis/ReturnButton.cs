@@ -3,11 +3,12 @@ using shootandRun1.Managers;
 
 namespace shootandRun1.Uis
 {
-    public class StartButton : MyButton
+    public class ReturnButton : MyButton
     {
         protected override void HandleOnButtonClicked()
         {
-            GameManager.Instance.LoadLevel(name:"Game");
+            GameManager.Instance.ReturnMenu();
         }
     }
 }
+

@@ -34,5 +34,15 @@ namespace shootandRun1.Managers
             _enemies.Remove(enemyController);
             enemyController.transform.parent = this.transform;
         }
+
+        public void DestroyAllEnemies()
+        {
+            foreach (EnemyController enemyController in _enemies)
+            {
+                Destroy(enemyController.gameObject);
+            }
+
+            _enemies.Clear();
+        }
     }
 }
