@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 using shootandRun1.Abstracts.States;
 using shootandRun1.Abstracts.Controllers;
 
@@ -35,6 +33,7 @@ namespace shootandRun1.States.EnemyStates
         public void TickFixed()
         {
             _enemyController.Inventory.CurrentWeapon.Attack();
+            _enemyController.FindNearestTarget();
         }
 
         public void TickLate()

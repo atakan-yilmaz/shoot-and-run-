@@ -41,7 +41,7 @@ namespace shootandRun1.Controllers
         }
         void Start()
         {
-            Target = FindObjectOfType<PlayerController>().transform;
+            //FindNearestTarget();
 
             AttackState attackState = new AttackState(this);
             ChaseState chaseState = new ChaseState(this);
@@ -53,7 +53,7 @@ namespace shootandRun1.Controllers
 
             _stateMachine.SetState(chaseState);
         }
-       
+
         private void Update()
         {
             _stateMachine.Tick();
@@ -63,13 +63,33 @@ namespace shootandRun1.Controllers
         {
             _stateMachine.TickFixed();
         }
+
         private void LateUpdate()
         {
             _stateMachine.TickLate();
         }
+
         void OnDestroy()
         {
-            EnemyManager.Instance.RemoveEnemyController(this);
+            EnemyManager.Instance.RemoveEnemyController(this); 
+        }
+
+        public void FindNearestTarget()
+        {
+            Transform nearest = EnemyManager.Instance.Targets[0];
+
+            foreach (Transform target in EnemyManager.Instance.Targets)
+            {
+                float nearestValue = Vector3.Distance(nearest.position, transform.position);
+                float newValue = Vector3.Distance(target.position, transform.position);
+
+                if (newValue < nearestValue)
+                {
+                    nearest = target;
+                }
+            }
+
+            Target = nearest;
         }
     }
 }

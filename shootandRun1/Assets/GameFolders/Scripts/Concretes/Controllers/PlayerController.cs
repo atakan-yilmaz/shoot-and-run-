@@ -7,6 +7,7 @@ using shootandRun1.Movements;
 using shootandRun1.Animations;
 using shootandRun1.Abstracts.Controllers;
 using shootandRun1.Abstracts.Combats;
+using shootandRun1.Managers;
 
 namespace shootandRun1.Controllers
 {
@@ -51,11 +52,20 @@ namespace shootandRun1.Controllers
                 _animation.DeadAnimation("death");
                 _gameOverPanel.SetActive(true);
             };
+
+            EnemyManager.Instance.Targets.Add(this.transform);
+        }
+        private void OnDisable()
+        {
+            EnemyManager.Instance.Targets.Remove(this.transform);
         }
         private void Update()
         {
             _direction = _input.Direction;
-            //Debug.Log(_input.Rotation);
+
+            //
+                //Debug.Log(_input.Rotation);
+            //
 
             if (_health.IsDead) return;
 
@@ -67,7 +77,9 @@ namespace shootandRun1.Controllers
                 _inventory.CurrentWeapon.Attack();
             }
 
+                //
             //Debug.Log(_input.IsInventoryButtonPressed); klavye q islemi 
+                //
 
             if (_input.IsInventoryButtonPressed)
             {

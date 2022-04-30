@@ -34,7 +34,7 @@ namespace shootandRun1.States.EnemyStates
 
         public void TickFixed()
         {
-
+            _enemyController.FindNearestTarget();
         }
 
         public void TickLate()

@@ -11,6 +11,9 @@ namespace shootandRun1.Managers
     public class EnemyManager : SingletonMonoBehavior<EnemyManager>
     {
         [SerializeField] List<EnemyController> _enemies;
+
+        public List<Transform> Targets { get; private set; }
+
         [SerializeField] int _maxCountOnGame = 15;
 
         public bool CanSpawn => _maxCountOnGame > _enemies.Count;
@@ -21,6 +24,7 @@ namespace shootandRun1.Managers
         {
             SetSingletonThisGameObject(this);
             _enemies = new List<EnemyController>();
+            Targets = new List<Transform>();
         }
 
         public void AddEnemyController(EnemyController enemyController)

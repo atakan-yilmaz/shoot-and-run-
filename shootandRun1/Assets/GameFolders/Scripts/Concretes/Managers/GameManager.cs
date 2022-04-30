@@ -81,6 +81,7 @@ namespace shootandRun1.Managers
             {
                 _playerCount = 0;
                 EnemyManager.Instance.DestroyAllEnemies();
+                EnemyManager.Instance.Targets.Clear();
                 LoadLevel("Menu");
             }
         }
