@@ -41,7 +41,7 @@ namespace shootandRun1.Controllers
         }
         void Start()
         {
-            //FindNearestTarget();
+            FindNearestTarget();
 
             AttackState attackState = new AttackState(this);
             ChaseState chaseState = new ChaseState(this);

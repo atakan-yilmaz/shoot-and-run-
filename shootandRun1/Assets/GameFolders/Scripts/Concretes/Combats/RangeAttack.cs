@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using shootandRun1.Abstracts.Combats;
 using shootandRun1.ScriptableObjects;
-
+using shootandRun1.Managers;
 
 namespace shootandRun1.Combats
 {
@@ -16,6 +16,7 @@ namespace shootandRun1.Combats
         {
             _camera = transformObject.GetComponent<Camera>();
             _attackSO = attackSO;
+            //SoundManager.Instance.SoundControllers[1].SetClip(_attackSO.Clip);
         }
 
         public void AttackAction()
@@ -29,6 +30,8 @@ namespace shootandRun1.Combats
                     health.TakeDamage(_attackSO.Damage);
                 }
             }
+
+            SoundManager.Instance.RangeAttackSound(_attackSO.Clip, _camera.transform.position);
         }
     }
 }

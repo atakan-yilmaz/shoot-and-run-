@@ -23,6 +23,7 @@ namespace shootandRun1.ScriptableObjects
         [SerializeField] float _floatValue = 1f; //distance property
         [SerializeField] float _attackMaxDelay = 0.25f;
         [SerializeField] AnimatorOverrideController _animatorOverride;
+        [SerializeField] AudioClip _clip;
 
         //private Transform transform; //close
 
@@ -31,6 +32,7 @@ namespace shootandRun1.ScriptableObjects
         public LayerMask LayerMask => _layerMask;
         public float AttackMaxDelay => _attackMaxDelay;
         public AnimatorOverrideController AnimatorOverride => _animatorOverride;
+        public AudioClip Clip => _clip;
 
         public IAttackType GetAttackType(Transform transform )
         {

@@ -42,6 +42,8 @@ namespace shootandRun1.Managers
             if (_playerIndex >= _prefabs.Length) _playerIndex = _prefabs.Length - 1;
             
             _playerInputManager.playerPrefab = _prefabs[_playerIndex];
+
+            _playerInputManager.splitScreen = true;
         }
 
         public void HandleOnLeft()
@@ -51,6 +53,8 @@ namespace shootandRun1.Managers
             if (_playerIndex < 0) _playerIndex = 0;
 
             _playerInputManager.playerPrefab = _prefabs[_playerIndex];
+
+            _playerInputManager.splitScreen = false;
         }
     }
 }
