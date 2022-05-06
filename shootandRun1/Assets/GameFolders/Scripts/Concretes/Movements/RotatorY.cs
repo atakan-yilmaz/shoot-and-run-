@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using shootandRun1.Abstracts.Movements;
 using shootandRun1.Controllers;

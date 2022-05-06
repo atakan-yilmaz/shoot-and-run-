@@ -5,17 +5,19 @@ using shootandRun1.Managers;
 
 namespace shootandRun1.Combats
 {
-    public class MeleeAttackType : IAttackType
+    public class MeleeAttackType : MonoBehaviour, IAttackType
     {
-        Transform _transformObject;
-        AttackSO _attackSO;
+        [SerializeField] Transform _transformObject;
+        [SerializeField] AttackSO _attackSO;
 
-        public MeleeAttackType(Transform transformObject, AttackSO attackSO)
-        {
-            _transformObject = transformObject;
-            _attackSO = attackSO;
-            SoundManager.Instance.SoundControllers[2].SetClip(_attackSO.Clip);
-        }
+        public AttackSO AttackInfo => _attackSO;
+
+        //public MeleeAttackType(AttackSO attackSO, params Transform[] transforms)
+        //{
+        //    _transformObject = transforms[0];
+        //    _attackSO = attackSO;
+        //    SoundManager.Instance.SoundControllers[2].SetClip(_attackSO.Clip);
+        //}
         public void AttackAction()
         {
             Vector3 attackPoint = _transformObject.position;

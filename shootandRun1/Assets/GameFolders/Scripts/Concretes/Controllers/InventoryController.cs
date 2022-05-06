@@ -50,7 +50,7 @@ namespace shootandRun1.Controllers
                 if (CurrentWeapon == weapon)
                 {
                     weapon.gameObject.SetActive(true);
-                    _animator.runtimeAnimatorController = CurrentWeapon.attackSO.AnimatorOverride;
+                    _animator.runtimeAnimatorController = CurrentWeapon.AnimatorOverride;
                 }
                 else
                 {

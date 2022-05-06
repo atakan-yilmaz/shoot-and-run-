@@ -1,23 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using shootandRun1.Abstracts.Combats;
-using shootandRun1.Combats;
 
 
 namespace shootandRun1.ScriptableObjects
 {
-
-    enum AttackTypeEnum : byte
-    {
-        Range,Melee
-    }
-
     [CreateAssetMenu(fileName = "Attack Info", menuName = "Attack Information/Create New", order =51)]
+
 
     public class AttackSO : ScriptableObject
     {
-        [SerializeField] AttackTypeEnum _attackType;
         [SerializeField] int _damage = 10;
         [SerializeField] LayerMask _layerMask;
         [SerializeField] float _floatValue = 1f; //distance property
@@ -34,16 +24,16 @@ namespace shootandRun1.ScriptableObjects
         public AnimatorOverrideController AnimatorOverride => _animatorOverride;
         public AudioClip Clip => _clip;
 
-        public IAttackType GetAttackType(Transform transform )
-        {
-            if (_attackType == AttackTypeEnum.Range)
-            {
-                return new RangeAttack(transform, this);
-            }
-            else
-            {
-                return new MeleeAttackType(transform, this);
-            }
-        }
+        //public IAttackType GetAttackType(params Transform[] transforms )
+        //{
+        //    if (_attackType == AttackTypeEnum.Range)
+        //    {
+        //        return new RangeAttack(this, transforms);
+        //    }
+        //    else
+        //    {
+        //        return new MeleeAttackType(this, transforms);
+        //    }
+        //}
     }
 }

@@ -8,7 +8,8 @@ namespace shootandRun1.Helpers
     public class MeleeAttackRangeDisplay : MonoBehaviour
     {
         [SerializeField] float _radius = 1f;
-        private void OnDrawGizmos()
+
+        void OnDrawGizmos()
         {
             OnDrawGizmosSelected();
         }

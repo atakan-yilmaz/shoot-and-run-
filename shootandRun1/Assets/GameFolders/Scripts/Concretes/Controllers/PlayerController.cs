@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using shootandRun1.Abstracts.Inputs;
 using shootandRun1.Abstracts.Movements;
@@ -17,6 +15,7 @@ namespace shootandRun1.Controllers
         [SerializeField] float _turnSpeed = 10f;
         [SerializeField] float _moveSpeed = 10f;     
         [SerializeField] Transform _turnTransform;
+        [SerializeField] Transform _ribTransform;
 
         [Header("Uis")]
         [SerializeField] GameObject _gameOverPanel;
@@ -27,10 +26,12 @@ namespace shootandRun1.Controllers
         IRotator _yRotator;
         IMover _mover;
         IHealth _health;
+        IRotator _ribRotator;
         CharacterAnimation _animation;
         InventoryController _inventory;
 
-        Vector3 _direction; 
+        Vector3 _direction;
+        Vector3 _rotation;
 
         public Transform TurnTransform => _turnTransform;
 
@@ -42,6 +43,7 @@ namespace shootandRun1.Controllers
             _animation = new CharacterAnimation(this);
             _xRotator = new RotatorX(this);
             _yRotator = new RotatorY(this);
+            _ribRotator = new RibRotator(_ribTransform);
             _inventory = GetComponent<InventoryController>();
         }
 
@@ -61,25 +63,18 @@ namespace shootandRun1.Controllers
         }
         private void Update()
         {
-            _direction = _input.Direction;
-
-            //
-                //Debug.Log(_input.Rotation);
-            //
-
             if (_health.IsDead) return;
 
-            _xRotator.RotationAction(_input.Rotation.x, _turnSpeed);
-            _yRotator.RotationAction(_input.Rotation.y, _turnSpeed);
+            _direction = _input.Direction;
+            _rotation = _input.Rotation;
+
+            _xRotator.RotationAction(_rotation.x, _turnSpeed);
+            _yRotator.RotationAction(_rotation.y, _turnSpeed);
 
             if (_input.IsAttackButtonPress)
             {
                 _inventory.CurrentWeapon.Attack();
             }
-
-                //
-            //Debug.Log(_input.IsInventoryButtonPressed); klavye q islemi 
-                //
 
             if (_input.IsInventoryButtonPressed)
             {
@@ -98,6 +93,8 @@ namespace shootandRun1.Controllers
 
             _animation.MoveAnimation(_direction.magnitude);
             _animation.AttackAnimation(_input.IsAttackButtonPress);
+
+            _ribRotator.RotationAction(_rotation.y * -1, _turnSpeed);
         }
     }
 }

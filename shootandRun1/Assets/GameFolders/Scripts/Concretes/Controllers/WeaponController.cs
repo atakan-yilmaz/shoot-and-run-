@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using shootandRun1.Abstracts.Combats;
-using shootandRun1.Combats;
 using shootandRun1.ScriptableObjects;
 
 
@@ -11,24 +8,24 @@ namespace shootandRun1.Controllers
     public class WeaponController : MonoBehaviour
     {
         [SerializeField] bool _canFire;
-        [SerializeField] Transform _transformObject; //camera 
 
-        // ----------------------------------**----------------------------------- \\
-
-        [SerializeField] AttackSO _attackSO;
 
         float _currentTime = 0f;
         IAttackType _attackType;
-        public AttackSO attackSO => _attackSO;
+        public AnimatorOverrideController AnimatorOverrideController => _attackType.AttackInfo.AnimatorOverride;
+
+        public RuntimeAnimatorController AnimatorOverride { get; internal set; }
+
         private void Awake()
         {
-            _attackType = new RangeAttack(_transformObject, _attackSO); //camera position
+            _attackType = GetComponent<IAttackType>();
         }
+
         void Update()
         {
             _currentTime += Time.deltaTime;
 
-            _canFire = _currentTime > _attackSO.AttackMaxDelay;
+            _canFire = _currentTime > _attackType.AttackInfo.AttackMaxDelay;
         }
         public void Attack()
         {
